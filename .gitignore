@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Project specifics
+episodes/
+logs/
+debug_response.json
+claude_player.log
+
+# Mac
+.DS_Store

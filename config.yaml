@@ -1,0 +1,34 @@
+# Claude 0 AD Player Configuration
+
+# Anthropic API Settings (if using Claude)
+anthropic:
+  api_key: ${ANTHROPIC_API_KEY}
+  model: claude-sonnet-4-20250514
+  max_tokens: 100
+  temperature: 0.3
+
+# Gemini API Settings (default)
+gemini:
+  api_key: ${GEMINI_API_KEY}
+  model: gemini-2.0-flash
+  temperature: 0.3
+
+# Game Settings
+game:
+  environment: "zero_ad_rl/CavalryVsInfantry-v0"
+  render: false
+  max_steps_per_episode: 500
+
+# Policy Settings
+policy:
+  provider: gemini  # "gemini" or "anthropic"
+  conversation_history_length: 20
+  include_action_descriptions: true
+  simplify_observations: true
+
+# Logging Settings
+logging:
+  level: INFO
+  log_file: null  # Set to path like "claude_player.log" to save logs
+  save_episodes: true
+  episode_dir: ./episodes/
