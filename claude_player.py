@@ -44,7 +44,9 @@ class LLMInterface:
         if self.provider == "gemini":
             from google import genai
             import os
-            api_key = os.getenv("GEMINI_API_KEY", "AIzaSyDEAUkwYjlTPXqQGVXDkr9nBbIescmQ6iY")
+            api_key = os.getenv("GEMINI_API_KEY")
+            if not api_key:
+                raise ValueError("GEMINI_API_KEY environment variable not set")
             self.client = genai.Client(api_key=api_key)
             logger.info(f"Initialized Gemini with model {self.model}")
         else:

@@ -100,7 +100,9 @@ class ClaudePolicy:
         else:
             # Default to Gemini
             from google import genai
-            key = api_key or os.getenv("GEMINI_API_KEY", "AIzaSyDEAUkwYjlTPXqQGVXDkr9nBbIescmQ6iY")
+            key = api_key or os.getenv("GEMINI_API_KEY")
+            if not key:
+                raise ValueError("GEMINI_API_KEY environment variable not set")
             self.client = genai.Client(api_key=key)
             self.model = "gemini-3-flash-preview"
             logger.info(f"Initialized Gemini client with model {self.model}")
